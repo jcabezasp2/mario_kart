@@ -33,20 +33,16 @@ class PruebasKart {
 		
 		assertTrue(0 < listaDeKarts.get(0).getSpeed());
 		assertTrue(18 > listaDeKarts.get(0).getSpeed());
-		assertTrue(0 < listaDeKarts.get(1).getSpeed());
-		assertTrue(18 > listaDeKarts.get(1).getSpeed());
-		assertTrue(0 < listaDeKarts.get(2).getSpeed());
-		assertTrue(18 > listaDeKarts.get(2).getSpeed());
-		assertTrue(0 < listaDeKarts.get(3).getSpeed());
-		assertTrue(18 > listaDeKarts.get(3).getSpeed());
-		assertTrue(0 < listaDeKarts.get(4).getSpeed());
-		assertTrue(18 > listaDeKarts.get(4).getSpeed());
-		assertTrue(0 < listaDeKarts.get(5).getSpeed());
-		assertTrue(18 > listaDeKarts.get(5).getSpeed());
-		assertTrue(0 < listaDeKarts.get(6).getSpeed());
-		assertTrue(18 > listaDeKarts.get(6).getSpeed());
-		assertTrue(0 < listaDeKarts.get(7).getSpeed());
-		assertTrue(18 > listaDeKarts.get(7).getSpeed());
+		
+	}
+	
+	@Test
+	void testEquals() {
+		Kart prueba1 = new Kart("AAA");
+		Kart prueba2 = new Kart("AAA");
+		assertTrue(listaDeKarts.get(0).equals(listaDeKarts.get(0)));
+		assertFalse(listaDeKarts.get(0).equals(listaDeKarts.get(1)));
+		assertFalse(prueba1.equals(prueba2));
 	}
 
 }

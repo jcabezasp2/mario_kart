@@ -1,5 +1,6 @@
 package pkgmario.modelo;
 
+import java.util.Objects;
 import java.util.Random;
 
 public class Kart {
@@ -28,6 +29,21 @@ public class Kart {
 	public int move() {
 		
 		return this.speed + this.acceleration + random.nextInt(MAX_RANDOM);	
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(acceleration, driver, speed);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (!(obj instanceof Kart))
+			return false;
+		Kart other = (Kart) obj;
+		return acceleration == other.acceleration && Objects.equals(driver, other.driver) && speed == other.speed;
 	}
 
 	public String getDriver() {

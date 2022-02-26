@@ -23,9 +23,7 @@ public class Main {
 				listaDeKarts.add(new Kart(nombres[i]));
 			}
 		
-		 for(Kart unKart: listaDeKarts) {
-			 System.out.println(unKart.toString());
-		 }
+		System.out.println(!listaDeKarts.isEmpty());
 		 
 		
 		

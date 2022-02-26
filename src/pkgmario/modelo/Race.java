@@ -8,8 +8,8 @@ public class Race {
 	private String name;
 	private final static int NUM_KARTS = 3;
 	private Circuit circuit;
-	List<Kart> listaDeKartsParticipantes = new ArrayList<Kart>();
-	List<Kart> listadeKartsFinalizados = new ArrayList<Kart>();
+	List<Kart> karts = new ArrayList<Kart>();
+	List<Kart> finishedKarts = new ArrayList<Kart>();
 	
 	public Race(String name) {
 		super();
@@ -22,18 +22,30 @@ public class Race {
 	}
 	
 	private boolean notAllFinished() {
-		return true;
+		
+		return !karts.isEmpty();
 	}
 	
 	private void moveKart(Kart kart) {
-		
+		int movedPositions = 0;
+		movedPositions = kart.move() - circuit.difficulty();
+		kart.setPosition(kart.getPosition() + movedPositions);
 	}
 	
 	private boolean isFinished(Kart kart) {
-	return true;
+		
+		if(kart.getPosition() >= circuit.getDistance()) {
+			return true;
+		}else{
+			return false;
+		}
+		
 	}
 	
 	private void moveToFinished(Kart kart) {
+		//No uso un iterator, porque entiendo que aun en el caso de que dos Karts sean iguales, solo estaria terminando la carrera uno de ellos
+		 finishedKarts.add(kart);
+		 karts.remove(kart);
 		
 	}
 	
@@ -42,15 +54,41 @@ public class Race {
 	}
 	
 	public void addKart(Kart kart) {
-		
+		karts.add(kart);
 	}
 	
 	public void setCircuit(Circuit circuit) {
-		
+		this.circuit = circuit;
 	}
 	
 	public String toString() {
-		return null;
+		int contador = 1;
+		StringBuilder sb = new StringBuilder();
+		
+		sb.append("Race: ");
+		sb.append(this.getName());
+		sb.append("\nCircuit: ");
+		sb.append(circuit.toString());
+		sb.append("\n");
+		
+		for(Kart unKart: karts) {
+		sb.append(contador);
+		sb.append(".-");
+		sb.append(unKart.toString());
+		sb.append("\n");
+		contador++;
+		}
+		
+		
+		return sb.toString();
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
 	}
 	
 	
