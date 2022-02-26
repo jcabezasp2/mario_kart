@@ -8,9 +8,9 @@ public class Kart {
 	private int speed;
 	private int acceleration;
 	private int position;
-	private Random random;
-	private static int MAX_POINTS = 18;
-	private static int MAX_RANDOM = 6;
+	private Random random = new Random();
+	private final static int MAX_POINTS = 18;
+	private final static int MAX_RANDOM = 6;
 	
 	public Kart(String driver) {
 		super();
@@ -21,13 +21,13 @@ public class Kart {
 	private void init() {
 		
 		this.position = 0;
-		this.speed = random.nextInt(MAX_POINTS + 1);
+		this.speed = random.nextInt(MAX_POINTS);
 		this.acceleration = MAX_POINTS - this.speed;
 	}
 	
 	public int move() {
 		
-		return this.speed + this.acceleration + random.nextInt(MAX_RANDOM + 1);	
+		return this.speed + this.acceleration + random.nextInt(MAX_RANDOM);	
 	}
 
 	public String getDriver() {

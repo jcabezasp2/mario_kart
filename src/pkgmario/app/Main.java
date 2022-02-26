@@ -1,22 +1,33 @@
 package pkgmario.app;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
+import pkgmario.modelo.Kart;
 import pkgmario.modelo.Race;
 
 public class Main {
-	private static Random random;
-	private static int MAX_RANDOM = 6;
+	
 	
 	public static void main(String[] Args) {
 		
-		Race race = new Race();
-		random = new Random(MAX_RANDOM);
-		for(int i = 1;
-				i <= 25;
-				i++) {
-			System.out.println(random.nextInt(18));	
-		}
+
+		 String[]  nombres = new String[] {"a", "b", "c", "d", "e", "f", "g", "h" , "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"};
+		 List<Kart> listaDeKarts = new ArrayList<Kart>();
+		
+		
+		 for(int i = 0;
+					i < nombres.length;
+					i++) {
+				listaDeKarts.add(new Kart(nombres[i]));
+			}
+		
+		 for(Kart unKart: listaDeKarts) {
+			 System.out.println(unKart.toString());
+		 }
+		 
+		
 		
 		
 	}
