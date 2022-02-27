@@ -78,14 +78,6 @@ public class Kart {
 		this.position = position;
 	}
 
-	public Random getRandom() {
-		return random;
-	}
-
-	public void setRandom(Random random) {
-		this.random = random;
-	}
-
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();

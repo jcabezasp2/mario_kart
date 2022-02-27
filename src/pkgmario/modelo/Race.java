@@ -56,7 +56,7 @@ public class Race {
 	}
 	
 	private void moveToFinished(Kart kart) {
-		//No uso un iterator, porque entiendo que aun en el caso de que dos Karts sean iguales, solo estaria terminando la carrera uno de ellos
+		
 		 finishedKarts.add(kart);
 		 karts.remove(kart);
 		
